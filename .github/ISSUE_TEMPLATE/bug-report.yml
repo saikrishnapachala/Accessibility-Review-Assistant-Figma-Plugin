@@ -1,0 +1,50 @@
+name: Bug report
+description: Report reproducible plugin behavior that is incorrect or confusing.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the plugin. Do not attach confidential screens, private design-system assets, or personal data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Select…
+        2. Enable…
+        3. Generate…
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Review category
+      options:
+        - Selection or plugin UI
+        - Content Hierarchy
+        - Focus Grouping
+        - Text Alternatives
+        - Tab Order and Touch Areas
+        - Layout or rendering
+        - Regeneration or removal
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: figma-version
+    attributes:
+      label: Figma version
+  - type: textarea
+    id: safe-fixture
+    attributes:
+      label: Anonymized fixture details
+      description: Describe layer types, geometry, and component metadata without sharing confidential content.

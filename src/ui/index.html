@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility Review Assistant</title>
+    <style>
+      :root {
+        color: #1e1e1e;
+        font-family: Inter, system-ui, sans-serif;
+        font-synthesis: none;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 17px;
+        line-height: 24px;
+        margin: 0 0 16px;
+      }
+
+      h2 {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+      }
+
+      .selection {
+        background: #f5f5f5;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 12px;
+      }
+
+      .selection strong {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .selection p,
+      .status {
+        color: #5c5c5c;
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0;
+      }
+
+      .selection p[data-valid="false"],
+      .status[data-tone="error"] {
+        color: #b42318;
+      }
+
+      .status[data-tone="success"] {
+        color: #067647;
+      }
+
+      fieldset {
+        border: 0;
+        margin: 0 0 20px;
+        padding: 0;
+      }
+
+      label {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        font-size: 13px;
+        gap: 10px;
+        min-height: 36px;
+      }
+
+      input {
+        height: 16px;
+        margin: 0;
+        width: 16px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 16px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        min-height: 34px;
+        padding: 7px 12px;
+      }
+
+      button.primary {
+        background: #0d99ff;
+        color: #ffffff;
+        grid-column: 1 / -1;
+      }
+
+      button.secondary {
+        background: #ededed;
+        color: #1e1e1e;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+      }
+
+      button:focus-visible,
+      input:focus-visible {
+        outline: 2px solid #1e1e1e;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Accessibility Review Assistant</h1>
+
+      <section class="selection" aria-labelledby="selection-heading">
+        <h2 id="selection-heading">Selected screen</h2>
+        <strong data-selected-frame>No valid frame selected</strong>
+        <p data-selection-message data-valid="false">Select one iOS screen frame.</p>
+      </section>
+
+      <fieldset>
+        <legend><h2>Review categories</h2></legend>
+        <label>
+          <input checked data-category="CONTENT_HIERARCHY" type="checkbox" />
+          Content Hierarchy
+        </label>
+        <label>
+          <input checked data-category="FOCUS_GROUPING" type="checkbox" />
+          Focus Grouping
+        </label>
+        <label>
+          <input checked data-category="TEXT_ALTERNATIVES" type="checkbox" />
+          Text Alternatives
+        </label>
+        <label>
+          <input checked data-category="TAB_ORDER" type="checkbox" />
+          Tab Order and Touch Areas
+        </label>
+      </fieldset>
+
+      <p class="status" data-status data-tone="neutral" role="status" aria-live="polite">
+        Choose categories, then generate the review workspace.
+      </p>
+
+      <div class="actions">
+        <button class="primary" data-generate disabled type="button">Generate review</button>
+        <button class="secondary" data-remove disabled type="button">Remove generated</button>
+        <button class="secondary" data-close type="button">Close</button>
+      </div>
+    </main>
+    <!-- UI_SCRIPT -->
+  </body>
+</html>

@@ -1,0 +1,31 @@
+name: Accessibility rule proposal
+description: Propose a deterministic detection or annotation rule.
+title: "[Rule]: "
+labels: [accessibility, enhancement]
+body:
+  - type: textarea
+    id: case
+    attributes:
+      label: Design pattern
+      description: Describe the iOS pattern and the evidence available in Figma.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected annotation
+      description: Explain the expected output and when it should become Needs Review.
+    validations:
+      required: true
+  - type: textarea
+    id: false-positives
+    attributes:
+      label: False-positive risks
+      description: Describe similar designs that must not receive this annotation.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or references
+      description: Link public guidance or describe anonymized fixture evidence.
